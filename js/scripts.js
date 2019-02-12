@@ -7,10 +7,12 @@ var repository = [
 
 
 for (var i = 0; i < repository.length; i++) {
-  document.write("Name: ", repository[i].name, "<br>", "Height: ", repository[i].height," meters", "<br>", "Typing: ",
-                 repository[i].typing, "<br>", "Pokedex Number: ", repository[i].pokedexNumber, "<p>")
+  document.write("<p>")
+  document.write("<br>","Name: ", repository[i].name, "<br>", "Height: ", repository[i].height," meters", "<br>", "Typing: ",
+                 repository[i].typing, "<br>", "Pokedex Number: ", repository[i].pokedexNumber)
 
     if (repository[i].pokedexNumber > 480){
     document.write (' - This is a legendary pokemon')
     }
+    document.write("</p>")
 }
