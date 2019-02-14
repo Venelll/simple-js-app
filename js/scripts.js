@@ -23,14 +23,14 @@ var pkmRepository = (function () {
     {name: 'Venasaur', height: 2, typing: ['Grass', ' Poison'], pokedexNumber: 3},
     {name: 'Arceus', height: 3.2, typing: ['Normal'], pokedexNumber:  493},
   ];
-    //Add pokemon
-    function add (pokemon) {
-      pokemonRepository.push(pokemon);
-    };
-    //Makes pokemonRepository public
-    function  getAll () {
-      return pokemonRepository;
-    };
+  //Add pokemon
+  function add (pokemon) {
+    pokemonRepository.push(pokemon);
+  };
+  //Makes pokemonRepository public
+  function  getAll () {
+    return pokemonRepository;
+  };
   return {
     add: add,
     getAll: getAll,
@@ -39,5 +39,5 @@ var pkmRepository = (function () {
 //I use pkmRepository.getAll() to retrieve the data in the array and then it should be printing out
 //what I want it to be, however it's not. Unless I messed up somewhere inside the IIFE, again.
 pkmRepository.getAll().forEach(function(currentItem){
-                      document.write("<p>" + currentItem + "<br>");
-                      });
+  document.write("<p>" + currentItem + "<br>");
+});
