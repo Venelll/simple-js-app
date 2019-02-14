@@ -38,6 +38,6 @@ var pkmRepository = (function () {
 })();
 //I use pkmRepository.getAll() to retrieve the data in the array and then it should be printing out
 //what I want it to be, however it's not. Unless I messed up somewhere inside the IIFE, again.
-pkmRepository.getAll().forEach(function(name){
-                      document.write("<p>" + name + "<br>");
+pkmRepository.getAll().forEach(function(currentItem){
+                      document.write("<p>" + currentItem + "<br>");
                       });
