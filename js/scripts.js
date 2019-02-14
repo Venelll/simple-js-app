@@ -1,18 +1,17 @@
 //Original pokemon code //
-(function() {
-  var repository = repository.slice();
+/*(function() {
 
-  for (var i = 0; i < repository.length; i++) {
-    document.write("<p>")
-    document.write("<br>","Name: ", repository[i].name, "<br>", "Height: ", repository[i].height," meters", "<br>", "Typing: ",
-    repository[i].typing, "<br>", "Pokedex Number: ", repository[i].pokedexNumber)
+for (var i = 0; i < repository.length; i++) {
+document.write("<p>")
+document.write("<br>","Name: ", repository[i].name, "<br>", "Height: ", repository[i].height," meters", "<br>", "Typing: ",
+repository[i].typing, "<br>", "Pokedex Number: ", repository[i].pokedexNumber)
 
-    if (repository[i].pokedexNumber > 480){
-      document.write (' - This is a legendary pokemon')
-    }
-    document.write("</p>")
-  }
-});
+if (repository[i].pokedexNumber > 480){
+document.write (' - This is a legendary pokemon')
+}
+document.write("</p>")
+}
+})();*/
 
 //New pokemon code//
 var pkmRepository = (function () {
@@ -36,8 +35,12 @@ var pkmRepository = (function () {
     getAll: getAll,
   };
 })();
-//I use pkmRepository.getAll() to retrieve the data in the array and then it should be printing out
-//what I want it to be, however it's not. Unless I messed up somewhere inside the IIFE, again.
+//The new table of pokemon.
 pkmRepository.getAll().forEach(function(currentItem){
-  document.write("<p>" + currentItem + "<br>");
+  document.write("<p>" + currentItem.name + "<br>" + "Height: " + currentItem.height +" Meters" +
+  "<br>" + "Typing: " + currentItem.typing + "<br>" +"Pokedex Number: " + currentItem.pokedexNumber);
+
+  if (currentItem.pokedexNumber > 480){
+    document.write (" - This is a legendary pokemon")
+  }
 });
