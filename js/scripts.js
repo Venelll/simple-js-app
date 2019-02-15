@@ -1,18 +1,3 @@
-//Original pokemon code //
-/*(function() {
-
-for (var i = 0; i < repository.length; i++) {
-document.write("<p>")
-document.write("<br>","Name: ", repository[i].name, "<br>", "Height: ", repository[i].height," meters", "<br>", "Typing: ",
-repository[i].typing, "<br>", "Pokedex Number: ", repository[i].pokedexNumber)
-
-if (repository[i].pokedexNumber > 480){
-document.write (' - This is a legendary pokemon')
-}
-document.write("</p>")
-}
-})();*/
-
 //New pokemon code//
 var pkmRepository = (function () {
   //new repository
@@ -30,9 +15,14 @@ var pkmRepository = (function () {
   function  getAll () {
     return pokemonRepository;
   };
+  //removes a certain piece of the array
+  function remove () {
+    pokemonRepository.splice();
+  }
   return {
     add: add,
     getAll: getAll,
+    remove: remove,
   };
 })();
 //The new table of pokemon.
@@ -43,4 +33,5 @@ pkmRepository.getAll().forEach(function(currentItem){
   if (currentItem.pokedexNumber > 480){
     document.write (" - This is a legendary pokemon")
   }
+  document.write("</p>")
 });
