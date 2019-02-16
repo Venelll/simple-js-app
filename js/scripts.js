@@ -1,6 +1,6 @@
-//New pokemon code
+//pokemon repository
 var pkmRepository = (function () {
-  //new repository
+  //repository
   var pokemonRepository = [
     {name: 'Bulbasaur', height: .7,typing: ['Grass', ' Poison'], pokedexNumber: 1},
     {name: 'Ivysaur', height: .9, typing: ['Grass', ' Poison'], pokedexNumber: 2},
@@ -16,8 +16,8 @@ var pkmRepository = (function () {
     return pokemonRepository;
   };
   //removes a certain piece of the array.
-  function remove () {
-    pokemonRepository.splice(i,1);
+  function remove (indexToRemove) {
+    pokemonRepository.splice(indexToRemove,1);
   };
   //Allows public usage of array and ability to manipulate array.
   return {
