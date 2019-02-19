@@ -21,8 +21,9 @@ var pkmRepository = (function () {
   };
   function addListItem () {
     var listNode = document.createElement("LI");
-    var buttonNode = document.createElement("button").$pokemon;
+    var buttonNode = document.createElement("button");
     var nameNode = document.createTextElement(pokemonRepository.name);
+    buttonNode.classList.add('pokemon');
     listNode.appendChild(buttonNode);
     buttonNode.appendChild(nameNode);
     document.getElementByClass("pokedex").appendChild(listNode);
