@@ -13,15 +13,17 @@ var pokemonRepository = (function () {
   };
   //Retrieves entire array.
   function  getAll () {
-    return pokemonRepository;
+    return repository;
   };
   //removes a certain piece of the array.
   function remove (indexToRemove) {
-    pokemonRepository.splice(indexToRemove,1);
+    repository.splice(indexToRemove,1);
   };
+  //Displays pokemon and comes with HTML formatting.
   function addListItem (pokemon) {
     var listNode = document.createElement('li');
     var buttonNode = document.createElement('button');
+    buttonNode.innerHTML = pokemon.name;
     buttonNode.classList.add('pokemon');
     listNode.appendChild(buttonNode);
     document.getElementById('pokedexList').appendChild(listNode);
