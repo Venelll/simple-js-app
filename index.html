@@ -2,18 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <link rel= "icon" href="img/favicon.ico" type="image/x-icon"  />
+  <title>simple js app </title>
+  <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i,900" rel="stylesheet">
+  <link rel="stylesheet" type="text/CSS" href="css/styles.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Simple JS App</title>
-  <link rel="stylesheet" type="text/css" href="css/styles.css">
-
 </head>
-<body>
-  <!--I placed the filler content so there is something inside of the header-->
-  <header>
-    <!-- <a href="#">Filler content</a> -->
-  </header>
 
-  <script src="js/scripts.js"></script>
-</body>
-</html>
+<body>
+  <header class="page-header">
+    <h1> Pokedex
+      <img src="img/magnifying_glass.png" class="search" alt="search">
+    </h1>
+  </header>
+  <!--pokemon list-->
+  <ul role="list" class="pokedex">
+    <li>
+      <button class="pokemon"> Bulbasaur </button>
+    </li>
+    <li>
+      <button class="pokemon"> Ivysaur </button>
+    </li>
+    <li>
+      <button class="pokemon"> Venusaur</button>
+    </li>
+    <li>
+      <button class="arceus"> Arceus</button>
+    </ul>
+
+    <script src="js/scripts.js"></script>
+    <footer>
+    </footer>
+  </body>
+  </html>
