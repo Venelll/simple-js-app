@@ -19,6 +19,9 @@ var pokemonRepository = (function () {
   function remove (indexToRemove) {
     repository.splice(indexToRemove,1);
   };
+  function showDetails (pokemon) {
+    console.log(pokemon);
+  };
   //Displays pokemon and comes with HTML formatting.
   function addListItem (pokemon) {
     var listNode = document.createElement('li');
@@ -27,7 +30,9 @@ var pokemonRepository = (function () {
     buttonNode.classList.add('pokemon');
     listNode.appendChild(buttonNode);
     document.getElementById('pokedexList').appendChild(listNode);
-  }
+    //logs all the info about the pokemon.
+    document.querySelector('.pokemon').addEventListener('click', showDetails(pokemon) );
+  };
   //Allows public usage of array and ability to manipulate array.
   return {
     add: add,
@@ -37,6 +42,6 @@ var pokemonRepository = (function () {
   };
 })();
 //List of pokemon.
-/*pkmRepository.getAll().forEach(function(currentItem){
-
-});*/
+pokemonRepository.getAll().forEach(function(pokemon) {
+pokemonRepository.addListItem(pokemon);
+});
