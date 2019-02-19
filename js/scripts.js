@@ -34,3 +34,13 @@ var pkmRepository = (function () {
     remove: remove,
   };
 })();
+//List of pokemon.
+/*pkmRepository.getAll().forEach(function(currentItem){
+  document.write("<p>" + currentItem.name + "<br>" + "Height: " + currentItem.height +" Meters" +
+  "<br>" + "Typing: " + currentItem.typing + "<br>" +"Pokedex Number: " + currentItem.pokedexNumber);
+  //Checks legendary status.
+  if (currentItem.legendary === "yes"){
+    document.write (" - This is a legendary pokemon");
+  };
+  document.write("</p>");
+});*/
