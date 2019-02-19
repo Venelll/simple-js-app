@@ -1,7 +1,7 @@
 //pokemon repository
-var pkmRepository = (function () {
+var pokemonRepository = (function () {
   //repository
-  var pokemonRepository = [
+  var repository = [
     {name: 'Bulbasaur', height: .7, typing: ['Grass', ' Poison'], pokedexNumber: 1, legendary: "no"},
     {name: 'Ivysaur', height: .9, typing: ['Grass', ' Poison'], pokedexNumber: 2, legendary: "no"},
     {name: 'venusaur', height: 2, typing: ['Grass', ' Poison'], pokedexNumber: 3, legendary: "no"},
@@ -9,7 +9,7 @@ var pkmRepository = (function () {
   ];
   //Add pokemon
   function add (pokemon) {
-    pokemonRepository.push(pokemon);
+    repository.push(pokemon);
   };
   //Retrieves entire array.
   function  getAll () {
@@ -19,14 +19,12 @@ var pkmRepository = (function () {
   function remove (indexToRemove) {
     pokemonRepository.splice(indexToRemove,1);
   };
-  function addListItem () {
-    var listNode = document.createElement("LI");
-    var buttonNode = document.createElement("button");
-    var nameNode = document.createTextElement(pokemonRepository.name);
+  function addListItem (pokemon) {
+    var listNode = document.createElement('li');
+    var buttonNode = document.createElement('button');
     buttonNode.classList.add('pokemon');
     listNode.appendChild(buttonNode);
-    buttonNode.appendChild(nameNode);
-    document.getElementByClass("pokedex").appendChild(listNode);
+    document.getElementById('pokedexList').appendChild(listNode);
   }
   //Allows public usage of array and ability to manipulate array.
   return {
