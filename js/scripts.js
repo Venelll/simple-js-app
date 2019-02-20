@@ -4,7 +4,7 @@ var pokemonRepository = (function () {
   var repository = [
     {name: 'Bulbasaur', height: .7, typing: ['Grass', ' Poison'], pokedexNumber: 1, legendary: "no"},
     {name: 'Ivysaur', height: .9, typing: ['Grass', ' Poison'], pokedexNumber: 2, legendary: "no"},
-    {name: 'venusaur', height: 2, typing: ['Grass', ' Poison'], pokedexNumber: 3, legendary: "no"},
+    {name: 'Venusaur', height: 2, typing: ['Grass', ' Poison'], pokedexNumber: 3, legendary: "no"},
     {name: 'Arceus', height: 3.2, typing: ['Normal'], pokedexNumber:  493, legendary: "yes"},
   ];
   //Add pokemon
@@ -20,7 +20,7 @@ var pokemonRepository = (function () {
     repository.splice(indexToRemove,1);
   };
   function showDetails (pokemon) {
-    console.log(pokemon.name);
+    console.log(pokemon);
   };
   //Displays pokemon and comes with HTML formatting.
   function addListItem (pokemon) {
@@ -31,7 +31,7 @@ var pokemonRepository = (function () {
     listNode.appendChild(buttonNode);
     document.getElementById('pokedexList').appendChild(listNode);
     //logs all the info about the pokemon.
-    addEventListener('click', function (event){
+    buttonNode.addEventListener('click', function (event){
       showDetails(pokemon);
     } );
   };
@@ -45,5 +45,5 @@ var pokemonRepository = (function () {
 })();
 //List of pokemon.
 pokemonRepository.getAll().forEach(function(pokemon) {
-pokemonRepository.addListItem(pokemon);
+  pokemonRepository.addListItem(pokemon);
 });
