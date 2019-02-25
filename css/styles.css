@@ -83,12 +83,15 @@
   color: var(--grass);
 }
 
+/*Usual styling */
 body {
   font-family: 'Lato', sans-serif;
   font-weight: var(--font-weight-reg);
   font-size: var(--font-size-reg);
   line-height: 1.6;
-
+  cursor: default;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 h1 {
   font-size: var(--font-size-h1);
