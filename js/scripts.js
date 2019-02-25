@@ -15,8 +15,11 @@ var pokemonRepository = (function () {
   function remove (indexToRemove) {
     repository.splice(indexToRemove,1);
   };
+  //shows detailed info about pokemon.
   function showDetails (pokemon) {
-    console.log(pokemon);
+    pokemonRepository.loadDetails(pokemon).then(function() {
+      console.log(pokemon);
+    });
   };
   //Displays pokemon and comes with HTML formatting.
   function addListItem (pokemon) {
@@ -67,7 +70,8 @@ var pokemonRepository = (function () {
     remove: remove,
     addListItem: addListItem,
     loadList: loadList,
-    loadDetails: loadDetails
+    loadDetails: loadDetails,
+    showDetails: showDetails
   };
 })();
 
@@ -76,10 +80,5 @@ pokemonRepository.loadList().then(function() {
   //loads data and displays it.
   pokemonRepository.getAll().forEach(function(pokemon) {
     pokemonRepository.addListItem(pokemon);
-  });});
-  //when a pokemon name is clicked it will display the info of the pokemon in console
-  //or rather it will provide a link that will display the info.
-  function showDetails(item) {
-    pokemonRepository.loadDetails(item).then(function () {
-      console.log(item);   });
-    }
+  });
+});
