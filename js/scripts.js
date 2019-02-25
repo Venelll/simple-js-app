@@ -1,12 +1,8 @@
 //pokemon repository
 var pokemonRepository = (function () {
   //repository
-  var repository = [
-    {name: 'Bulbasaur', height: .7, typing: ['Grass', ' Poison'], pokedexNumber: 1, legendary: "no"},
-    {name: 'Ivysaur', height: .9, typing: ['Grass', ' Poison'], pokedexNumber: 2, legendary: "no"},
-    {name: 'Venusaur', height: 2, typing: ['Grass', ' Poison'], pokedexNumber: 3, legendary: "no"},
-    {name: 'Arceus', height: 3.2, typing: ['Normal'], pokedexNumber:  493, legendary: "yes"},
-  ];
+     var repository = [];
+     var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=809';
   //Add pokemon
   function add (pokemon) {
     repository.push(pokemon);
@@ -35,15 +31,54 @@ var pokemonRepository = (function () {
       showDetails(pokemon);
     } );
   };
+  function loadList() {
+      return fetch(apiUrl).then(function (response) {
+          return response.json();
+      }).then(function (json) {
+          json.results.forEach(function (item) {
+              var pokemon = {
+                  name: item.name,
+                  detailsUrl: item.url
+              };
+              add(pokemon);
+          });
+      }).catch(function (e) {
+          console.error(e);
+      })
+  };
+  function loadDetails(item) {
+     var url = item.detailsUrl;
+     return fetch(url).then(function (response) {
+         return response.json();
+     }).then(function (details) {
+         // Now we add the details to the item
+         item.imageUrl = details.sprites.front_default;
+         item.height = details.height;
+         item.types = Object.keys(details.types);
+     }).catch(function (e) {
+         console.error(e);
+     });
+ };
+
   //Allows public usage of array and ability to manipulate array.
   return {
     add: add,
     getAll: getAll,
     remove: remove,
     addListItem: addListItem,
+    loadList: loadList,
+    loadDetails: loadDetails
   };
 })();
 //List of pokemon.
+pokemonRepository.loadList().then(function() {
+  //loads data and displays it.
 pokemonRepository.getAll().forEach(function(pokemon) {
   pokemonRepository.addListItem(pokemon);
-});
+  });});
+  //when a pokemon name is clicked it will display the info of the pokemon in console
+  //or rather it will provide a link that will display the info.
+  function showDetails(item) {
+     pokemonRepository.loadDetails(item).then(function () {
+         console.log(item);   });
+  }
