@@ -113,8 +113,12 @@ h3 {
 
 .pokedex {
   list-style-type: none;
+  text-transform: capitalize;
 }
-
+/* Tried capitalizing first letter of each string, did not work - revisit later.
+.pokedexList::first-letter {
+  text-transform: capitalize;
+} */
 button {
   background-color: var(--red);
   color: white;
