@@ -5,18 +5,18 @@ var pokemonRepository = (function () {
   var apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=809';
 
   // Elements
-  var modal = document.getElementById('custom-modal-ref')
-  var modalCloseButton = document.getElementById('custom-modal-close-ref')
-  var modalPaper = document.getElementById('custom-modal-paper-ref')
+  var modal = document.getElementById('custom-modal-ref');
+  var modalCloseButton = document.getElementById('custom-modal-close-ref');
+  var modalPaper = document.getElementById('custom-modal-paper-ref');
 
   function handleClickOutsideModal(event) {
     if (!modalPaper.contains(event.target)) {
-      hideModal()
+      hideModal();
     }
   }
 
   function hideModal() {
-    modal.classList.add('hidden')
+    modal.classList.add('hidden');
   }
 
   function handleKeyDown (event) {
@@ -34,9 +34,9 @@ var pokemonRepository = (function () {
     }
   }
 
-  document.addEventListener('keydown', handleKeyDown)
-  modal.addEventListener('click', handleClickOutsideModal)
-  modalCloseButton.addEventListener('click', hideModal)
+  document.addEventListener('keydown', handleKeyDown);
+  modal.addEventListener('click', handleClickOutsideModal);
+  modalCloseButton.addEventListener('click', hideModal);
 
   //Add pokemon
   function add (pokemon) {
@@ -58,9 +58,9 @@ var pokemonRepository = (function () {
      */
     pokemonRepository.loadDetails(pokemon).then(function() {
       modal.classList.remove('hidden');
-      modal.querySelector('h1').innerHTML = pokemon.name
-      modal.querySelector('p').innerHTML = 'Height: ' + pokemon.height
-      modal.querySelector('img').src = pokemon.imageUrl
+      modal.querySelector('h1').innerHTML = pokemon.name;
+      modal.querySelector('p').innerHTML = 'Height: ' + pokemon.height;
+      modal.querySelector('img').src = pokemon.imageUrl;
     });
 
   };
@@ -74,7 +74,7 @@ var pokemonRepository = (function () {
 
     buttonNode.addEventListener('click', function() {
 
-    })
+    });
 
     listNode.appendChild(buttonNode);
     document.getElementById('pokedexList').appendChild(listNode);
